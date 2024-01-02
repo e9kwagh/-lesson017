@@ -1,0 +1,20 @@
+
+target = ['    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700"', '    <a href="https://github.com/requests/httpbin" class="github-corner" aria-label="View source on Github">', '    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">', '                                    <a href="https://kennethreitz.org" target="_blank">the developer - Website</a>', '                    <a target="_blank" href="https://github.com/rochacbruno/flasgger">Flasgger</a>]']
+['https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700', 'https://github.com/requests/httpbin', 'http://www.w3.org/2000/svg', 'https://kennethreitz.org', 'https://github.com/rochacbruno/flasgger']
+
+prefix = "http"
+suffix = '"'
+
+def tokenizer(target, prefix, suffix):
+    """tokenizer"""
+    
+    list_of_tokens_that_match = []
+    for i in target:
+        if prefix in i and suffix in i :
+            start= i[i.index(prefix): ]
+            end = start[0:start.index(suffix)]
+            list_of_tokens_that_match.append(end)
+
+    return list_of_tokens_that_match
+
+
