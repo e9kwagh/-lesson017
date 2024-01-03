@@ -1,14 +1,6 @@
 """new"""
 import requests
 
-
-# def tokenizer(target, prefix, suffix):
-#     a = requests.get(target)
-#     return list_of_tokens_that_match
-
-
-
-
 def tokenizer(target, prefix, suffix):
     """tokenizer"""
     list_of_tokens_that_match = []
@@ -35,7 +27,7 @@ def infix_to_postfix(infix_expression: str):
 
     infix_expression = infix_expression.replace(" ",'')
 
-    power= {
+    power= {     
         '^' :3,
         '*' :2,
         '/' :2,
@@ -69,5 +61,5 @@ def infix_to_postfix(infix_expression: str):
     return prefixer
 
 if __name__ in "__main__":
-    # print(get_url_list("https://httpbin.org"))
+    print(get_url_list("https://httpbin.org"))
     print(infix_to_postfix("(a+b)^c-d/q"))
