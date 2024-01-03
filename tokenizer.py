@@ -7,9 +7,12 @@ import requests
 #     return list_of_tokens_that_match
 
 
+
+
 def tokenizer(target, prefix, suffix):
     """tokenizer"""
     list_of_tokens_that_match = []
+    # if isinstance(target,list) :
     for i in target:
         if prefix in i and suffix in i :
             start= i[i.index(prefix): ]
@@ -29,6 +32,8 @@ def get_url_list(url):
 
 def infix_to_postfix(infix_expression: str):
     """this is the postfix to prefix"""
+
+    infix_expression = infix_expression.replace(" ",'')
 
     power= {
         '^' :3,
@@ -53,7 +58,7 @@ def infix_to_postfix(infix_expression: str):
                 prefixer += val
             stack.pop()
         else :
-            while stack and stack[len(stack)-1] != "(" and power[char] <= power[stack[len(stack)-1]] :
+            while stack and stack[-1] != "(" and power[char] <= power[stack[-1]] :
                 d_val = stack.pop()
                 prefixer += d_val
             stack.append(char)
